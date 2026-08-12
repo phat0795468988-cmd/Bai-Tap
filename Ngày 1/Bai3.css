@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+  
+}
+header{
+    padding: 0;
+    margin: 0;
+   
+
+    justify-content: space-between;
+    display: flex;
+}
+nav ul{
+    display: flex;
+    right: inherit;
+    gap: 20px;
+}
+nav a{
+    display: flex;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+select{
+    float: right;
+}
+nav a:hover{
+    color: salmon;
+}
