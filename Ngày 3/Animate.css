@@ -1,0 +1,205 @@
+*{
+    box-sizing: content-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+}
+/*header*/
+header{
+    width: 1,366px;
+    height: 97px;
+    top: 135px;
+    left: 940px;
+
+    background-color: #7ee174;  
+    align-items: center ;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+#cls1{
+    width: 1,366px;
+    margin-right: auto;
+}
+
+img{
+    width: 150px;
+    height: 97px;
+    overflow: hidden;
+    object-fit: cover
+}
+#button{
+    margin: 0;
+}
+#btnDN{
+    width: 300px;
+    background-color: rgb(244, 1, 1);
+}
+
+#btnDK{
+    width: 300px;
+    background-color: aqua;
+}
+
+#btnDN:hover{
+    cursor: pointer;
+    transform: scale3d(1.1,1.1,1.1)
+}
+
+#btnDK:hover{
+    cursor: pointer;
+    transform: scale3d(1.1,1.1,1.1)
+}
+
+
+
+/*main*/
+/*menu chương trình*/
+#nav {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+}
+
+#nav1 {
+    display: flex;
+    align-items: center;
+}
+
+#nav2 {
+    margin-top: 20px;
+}
+
+#nav2 ul {
+    display: flex;
+    gap: 20px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav2 a {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+/*banner*/
+#banner {
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    left: 320px;
+
+}
+
+#banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+    position: absolute;
+
+    animation: slide 9s infinite;
+}
+
+#banner img:nth-child(2){
+   animation-delay: 3s;
+}
+
+#banner img:nth-child(3){
+    animation-delay: 6s;
+}
+
+@keyframes slide{
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+#layout{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(172, 176, 177);
+    position: absolute;
+}
+
+/*content*/
+#img1{
+   width: 36.39px;
+   height: 33.75px;
+   top: 10666.25px;
+   left: 1060px;
+}
+#content{
+    align-items: center;
+    width: 1000px;
+    height: 800px;
+    top: 1565px;
+    left: 50%;
+}
+#img2{
+    width:  1000px;
+    height: 200px;
+}
+
+p{
+    width: 1000px;
+}
+
+/*footer*/
+#footer{
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+#cls2{
+    align-items: center;
+    background-color: #7ee174;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+#cls5{
+    width: 40%;
+    align-items: center;
+    display: grid;
+    gap: 10px;
+    float: right;
+}
+
+input{
+    width: 354px;
+    height: 35px;
+}
+
+#btn{
+    background-color: antiquewhite;
+}
+
+
+
+
+
+
