@@ -13,5 +13,4 @@ Thuế: ${moneytax}
 Giảm giá: ${moneydiscount}
 Tổng tiền là: ${total}`
 }
-
 console.log(caculate(1000000,0.1,0.2))
