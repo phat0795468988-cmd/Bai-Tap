@@ -4,14 +4,14 @@ const calculate = (
     discount = 0
 ) =>
 {
-   const totalMax= price * tax
-   const total=  price * discount
-   const sum = price + totalMax - total
+   const tax = price * tax
+   const discount =  price * discount
+   const total = price + totalMax - total
 
  return `Giá: ${price}
-Thuế: ${totalMax}
-Giảm giá: ${total}
-Thành tiền: ${sum}`
+Thuế: ${tax}
+Giảm giá: ${discount}
+Thành tiền: ${total}`
 }
 
 console.log(calculate(1000000,0.1,0.2))
