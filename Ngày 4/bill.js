@@ -1,17 +1,17 @@
-const calculate = (
-    price, 
+const caculate = (
+    price,
     tax = 0.1,
     discount = 0
 ) =>
 {
-   const totalMax= price * tax
-   const total=  price * discount
-   const sum = price + totalMax - total
+    moneytax = price * tax;
+    moneydiscount = price * discount;
+    total = price + moneytax - moneydiscount
 
- return `Giá: ${price}
-Thuế: ${totalMax}
-Giảm giá: ${total}
-Thành tiền: ${sum}`
+    return` Giá: ${price}
+Thuế: ${moneytax}
+Giảm giá: ${moneydiscount}
+Tổng tiền là: ${total}`
 }
 
-console.log(calculate(1000000,0.1,0.2))
+console.log(caculate(1000000,0.1,0.2))
