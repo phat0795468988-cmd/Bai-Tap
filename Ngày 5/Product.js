@@ -5,8 +5,9 @@ const products = [
   { id: 4, name: "Tai nghe Bluetooth", price: 800000, category: "Gear", active: true }
 ];
 //Lọc danh sách
-const item = products.filter(product =>
-    product.active ===true && product.category === "Gear"
+const item = products.filter(product =>{
+    return  product.active ===true && product.category === "Gear"
+}
 )
 
 //Tạo mảng mới có 2 giá trị name, price
