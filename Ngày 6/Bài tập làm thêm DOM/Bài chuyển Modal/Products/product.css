@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cls2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#modal{
+    display: none;
+}
+
+#modal1{
+    display: none;
+}
