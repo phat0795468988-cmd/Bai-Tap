@@ -16,12 +16,21 @@ export function renderContent(posts, bookmarks) {
                     id="detail-${post.id}"
                 ></div>
 
+                <div
+                    class="comment-content"
+                    id = "comment-${post.id}">
+                </div>
+
                 <button class="favorite" data-id="${post.id}">
                     ❤️ Yêu thích
                 </button>
 
                 <button class="detail" data-id="${post.id}">
                     Xem chi tiết
+                </button>
+
+                 <button class="comment" data-id="${post.id}">
+                    📢 Comment
                 </button>
             </div>
         `;

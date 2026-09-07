@@ -11,6 +11,6 @@ export async function getDetail(postId) {
 }
 
 export async function getComment(postId) {
-  const Comment = await axios.get(`${API}/posts/${postId}/comment`);
+  const Comment = await axios.get(`${API}/posts/${postId}/comments`);
   return Comment.data;
 }
