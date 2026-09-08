@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f3ff;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0;
+  color: #6d28d9;
+}
+
+/* Danh sách sản phẩm */
+
+.List {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* Sản phẩm */
+
+.list-product {
+  padding: 25px;
+
+  background: white;
+  border: 2px solid #ddd6fe;
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Tên + giá + số lượng */
+
+.list-product h2 {
+  margin: 12px 0;
+  color: #4c1d95;
+}
+
+.list-product h2:nth-child(2) {
+  color: #db2777;
+  font-size: 18px;
+}
+
+.list-product h2:nth-child(3) {
+  font-size: 28px;
+  color: #111827;
+}
+
+/* Nút */
+
+.list-product button {
+  width: 45px;
+  height: 40px;
+
+  margin: 5px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #7c3aed;
+  color: white;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.list-product button:last-child {
+  background: #ec4899;
+}
+
+.list-product button:hover {
+  opacity: 0.8;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .List {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Điện thoại */
+
+@media (max-width: 500px) {
+  .List {
+    grid-template-columns: 1fr;
+  }
+}
+.cartShop {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px;
+
+  background: white;
+  border-radius: 20px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cartShop h1 {
+  margin: 0 0 25px;
+  text-align: center;
+  color: #6d28d9;
+}
+
+/* Nội dung bên trong Cart */
+.Cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 30px;
+
+  border: 2px solid #ddd6fe;
+  border-radius: 15px;
+
+  background: #faf5ff;
+}
+
+.Cart h2 {
+  margin: 0;
+  color: #4c1d95;
+}
+
+.Cart h2:last-child {
+  color: #db2777;
+}
+
+.active {
+  width: 90%;
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 18px 25px;
+
+  background: white;
+  border: 2px solid #ddd6fe;
+  border-radius: 15px;
+
+  text-align: center;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.active h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #6d28d9;
+}
