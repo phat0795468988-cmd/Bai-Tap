@@ -1,0 +1,253 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADING */
+
+.category-heading {
+  width: 94%;
+  max-width: 1500px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-heading h2 {
+  margin: 0;
+  color: #222;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.category-back {
+  padding: 8px 14px;
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.category-back:hover {
+  background: #4338ca;
+  color: white;
+}
+
+/* PRODUCTS */
+
+.category-products {
+  width: 94%;
+  max-width: 1500px;
+  margin: 20px auto;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* PRODUCT CARD */
+
+.category-card {
+  min-width: 0;
+  padding: 9px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* IMAGE */
+
+.category-card img {
+  width: 100%;
+  height: 120px;
+  padding: 3px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+/* TITLE */
+
+.category-card h3 {
+  min-height: 34px;
+  margin: 0 0 5px;
+  padding: 2px 0;
+  color: #222;
+  font-size: 13px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* DESCRIPTION */
+
+.category-description {
+  height: 42px;
+  margin: 0 0 5px;
+  padding: 2px 0;
+  color: #666;
+  font-size: 10px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* PRICE */
+
+.category-price {
+  margin: 2px 0;
+  padding: 2px 0;
+  color: #e11d48;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* RATING */
+
+.category-rating {
+  margin: 2px 0 6px;
+  padding: 2px 0;
+  color: #333;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* DETAIL */
+
+.category-button-detail {
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.category-btn-detail {
+  width: 100%;
+  height: 28px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.category-btn-detail:hover {
+  background: #4338ca;
+  color: white;
+}
+
+/* CART */
+
+.category-button-cart {
+  margin-bottom: 5px;
+}
+
+.category-btn-cart {
+  width: 100%;
+  height: 28px;
+  padding: 4px;
+  border: none;
+  border-radius: 5px;
+  background: #4f46e5;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.category-btn-cart:hover {
+  background: #3730a3;
+}
+
+/* WISHLIST */
+
+.category-button-wishlist {
+  margin-bottom: 2px;
+}
+
+.category-btn-wishlist {
+  width: 100%;
+  height: 28px;
+  padding: 4px;
+  border: 1px solid #f43f5e;
+  border-radius: 5px;
+  background: white;
+  color: #e11d48;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.category-btn-wishlist:hover {
+  background: #e11d48;
+  color: white;
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1300px) {
+  .category-products {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .category-products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .category-products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .category-products {
+    width: 94%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .category-heading h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  .category-products {
+    width: 94%;
+    grid-template-columns: 1fr;
+  }
+
+  .category-card img {
+    height: 180px;
+  }
+}

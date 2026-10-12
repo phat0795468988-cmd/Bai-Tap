@@ -1,0 +1,410 @@
+
+/* Trang lịch sử mua hàng */
+.history-page {
+  min-height: 100vh;
+  padding: 45px 20px 70px;
+  background: linear-gradient(180deg, #f5f7ff 0%, #ffffff 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1e293b;
+}
+
+/* Khung nội dung */
+.history-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Tiêu đề chính */
+.history-container > h2 {
+  position: relative;
+  margin: 0 0 35px;
+  padding-bottom: 18px;
+  color: #312e81;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.history-container > h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75px;
+  height: 5px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4f46e5, #a78bfa);
+}
+
+/* Trạng thái trống */
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 25px;
+  background: #ffffff;
+  border: 1px solid #e8eaf5;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(49, 46, 129, 0.06);
+  text-align: center;
+}
+
+.history-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  font-size: 40px;
+}
+
+.history-empty h3 {
+  margin: 0 0 12px;
+  color: #312e81;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.history-empty p {
+  max-width: 420px;
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Thẻ đơn hàng */
+.history-order {
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: #ffffff;
+  border: 1px solid #e5e7f2;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(30, 41, 59, 0.05);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.history-order:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(49, 46, 129, 0.1);
+}
+
+/* Phần đầu đơn hàng */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 28px;
+  background: linear-gradient(120deg, #eef2ff, #f8faff);
+  border-bottom: 1px solid #e0e7ff;
+}
+
+.history-header h3 {
+  margin: 0 0 9px;
+  color: #3730a3;
+  font-size: 20px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.history-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Trạng thái đơn hàng */
+.history-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 9px 15px;
+  border: 1px solid #bbf7d0;
+  border-radius: 30px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+/* Thông tin khách hàng */
+.history-customer {
+  padding: 25px 28px;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.history-customer h4,
+.history-products > h4 {
+  margin: 0 0 20px;
+  color: #312e81;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.history-customer p {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 12px 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.history-customer p strong {
+  flex-shrink: 0;
+  color: #334155;
+}
+
+/* Danh sách sản phẩm */
+.history-products {
+  padding: 25px 28px;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.history-product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  margin-bottom: 14px;
+  background: #fafbff;
+  border: 1px solid #edf0f7;
+  border-radius: 15px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.history-product:last-child {
+  margin-bottom: 0;
+}
+
+.history-product:hover {
+  background: #f5f3ff;
+  border-color: #c7d2fe;
+}
+
+.history-product img {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  object-fit: contain;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #e9eaf5;
+  border-radius: 12px;
+}
+
+.history-product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-product-info h4 {
+  margin: 0 0 12px;
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.history-product-info p {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.history-product-info strong {
+  color: #4f46e5;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* Phương thức thanh toán và ghi chú */
+.history-payment {
+  padding: 22px 28px;
+  background: #fcfcff;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.history-payment p {
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.history-payment strong {
+  color: #334155;
+}
+
+/* Tổng tiền */
+.history-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 28px;
+  background: linear-gradient(120deg, #f5f3ff, #eef2ff);
+}
+
+.history-total span {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.history-total strong {
+  color: #4338ca;
+  font-size: 27px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+/* Hiệu ứng chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  .history-order,
+  .history-product {
+    transition: none;
+  }
+
+  .history-order:hover {
+    transform: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .history-page {
+    padding: 30px 16px 50px;
+  }
+
+  .history-container > h2 {
+    font-size: 27px;
+    margin-bottom: 25px;
+  }
+
+  .history-header {
+    padding: 22px 20px;
+  }
+
+  .history-header h3 {
+    font-size: 17px;
+  }
+
+  .history-customer,
+  .history-products,
+  .history-payment {
+    padding: 22px 20px;
+  }
+
+  .history-total {
+    padding: 22px 20px;
+  }
+
+  .history-total strong {
+    font-size: 23px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 480px) {
+  .history-page {
+    padding: 25px 12px 40px;
+  }
+
+  .history-container > h2 {
+    font-size: 24px;
+    letter-spacing: -0.4px;
+  }
+
+  .history-empty {
+    padding: 45px 18px;
+    border-radius: 17px;
+  }
+
+  .history-empty-icon {
+    width: 75px;
+    height: 75px;
+    font-size: 33px;
+  }
+
+  .history-empty h3 {
+    font-size: 20px;
+  }
+
+  .history-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 16px;
+  }
+
+  .history-status {
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+
+  .history-customer,
+  .history-products,
+  .history-payment {
+    padding: 20px 16px;
+  }
+
+  .history-customer p {
+    display: block;
+    margin: 13px 0;
+  }
+
+  .history-customer p strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .history-product {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .history-product img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .history-product-info h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .history-product-info p {
+    font-size: 13px;
+  }
+
+  .history-product-info strong {
+    font-size: 14px;
+  }
+
+  .history-total {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 16px;
+  }
+
+  .history-total strong {
+    font-size: 25px;
+  }
+}
