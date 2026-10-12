@@ -8,8 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 //Gửi Action đến redux
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../feature/CartSlice.js";
-//Cập nhật giao diện, Hàm chứa hành động được hiển thị 
+//Cập nhật giao diện, Thực hiện hành động theo dõi khi giá trị thay đổi
 import { useState, useEffect } from "react";
+
 
 function Products() {
   const dispatch = useDispatch();
@@ -20,12 +21,14 @@ function Products() {
 
   const productsPerPage = 8;
 
+  //Gọi API sản phẩm
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
     staleTime: 3000,
   });
 
+  //Theo dõi hành động trang 
   useEffect(() => {
     setCurrentPage(1);
   }, [name]);

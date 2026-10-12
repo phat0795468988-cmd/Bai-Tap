@@ -1,12 +1,13 @@
-  import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./wishlist.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../feature/CartSlice";
+import { setWishlist, selectAll, selectItem } from "../../feature/Favorite";
 
 function Wishlist() {
-  const [wishlist, setWishlist] = useState([]);
-  const [selected, setSelected] = useState([]);
+  const wishlist = useSelector((state) => state.favorite.list);
+  const selected = useSelector((state) => state.favorite.selected);
 
   const dispatch = useDispatch();
   const nav = useNavigate();
@@ -16,16 +17,13 @@ function Wishlist() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
-      setWishlist([]);
-      setSelected([]);
+      dispatch(setWishlist([]));
       return;
     }
 
-    const data =
-      JSON.parse(localStorage.getItem(`wishlist_${user.id}`)) || [];
+    const data = JSON.parse(localStorage.getItem(`wishlist_${user.id}`)) || [];
 
-    setWishlist(data);
-    setSelected([]);
+    dispatch(setWishlist(data));
   }
 
   // Thêm sản phẩm đã chọn vào giỏ hàng
@@ -34,7 +32,7 @@ function Wishlist() {
 
     if (!user) {
       const confirmLogin = window.confirm(
-        "Bạn chưa đăng nhập. Bạn có muốn đăng nhập không?"
+        "Bạn chưa đăng nhập. Bạn có muốn đăng nhập không?",
       );
 
       if (confirmLogin) {
@@ -45,34 +43,31 @@ function Wishlist() {
     }
 
     const products = wishlist.filter((product) =>
-      selected.includes(product.id)
+      selected.includes(product.id),
     );
 
     if (products.length === 0) {
       window.alert("Vui lòng chọn sản phẩm cần thêm");
       return;
     }
+
     products.forEach((product) => {
       dispatch(addToCart(product));
     });
 
     // Xóa sản phẩm đã thêm khỏi danh sách
     const newWishlist = wishlist.filter(
-      (product) => !selected.includes(product.id)
+      (product) => !selected.includes(product.id),
     );
 
-    setWishlist(newWishlist);
+    localStorage.setItem(`wishlist_${user.id}`, JSON.stringify(newWishlist));
 
-    localStorage.setItem(
-      `wishlist_${user.id}`,
-      JSON.stringify(newWishlist)
-    );
+    dispatch(setWishlist(newWishlist));
+
     window.dispatchEvent(new Event("wishlistUpdated"));
 
-    setSelected([]);
-
     window.alert(
-      "Đã thêm sản phẩm vào giỏ hàng và xóa khỏi danh sách yêu thích!"
+      "Đã thêm sản phẩm vào giỏ hàng và xóa khỏi danh sách yêu thích!",
     );
   }
 
@@ -91,18 +86,14 @@ function Wishlist() {
     }
 
     const newWishlist = wishlist.filter(
-      (product) => !selected.includes(product.id)
+      (product) => !selected.includes(product.id),
     );
 
-    setWishlist(newWishlist);
+    localStorage.setItem(`wishlist_${user.id}`, JSON.stringify(newWishlist));
 
-    localStorage.setItem(
-      `wishlist_${user.id}`,
-      JSON.stringify(newWishlist)
-    );
+    dispatch(setWishlist(newWishlist));
+
     window.dispatchEvent(new Event("wishlistUpdated"));
-
-    setSelected([]);
 
     window.alert("Đã xóa sản phẩm được chọn!");
   }
@@ -116,40 +107,25 @@ function Wishlist() {
       loadWishlist();
     }
 
-    window.addEventListener(
-      "wishlistUpdated",
-      handleWishlistUpdate
-    );
+    window.addEventListener("wishlistUpdated", handleWishlistUpdate);
 
     return () => {
-      window.removeEventListener(
-        "wishlistUpdated",
-        handleWishlistUpdate
-      );
+      window.removeEventListener("wishlistUpdated", handleWishlistUpdate);
     };
   }, []);
 
   // Chọn tất cả
-  function handleSelectAll(e) {
-    if (e.target.checked) {
-      setSelected(wishlist.map((product) => product.id));
-    } else {
-      setSelected([]);
-    }
+  function handleSelectAll() {
+    dispatch(selectAll());
   }
 
   // Chọn từng sản phẩm
   function handleSelect(id) {
-    if (selected.includes(id)) {
-      setSelected(selected.filter((item) => item !== id));
-    } else {
-      setSelected([...selected, id]);
-    }
+    dispatch(selectItem(id));
   }
 
   const isAllSelected =
-    wishlist.length > 0 &&
-    selected.length === wishlist.length;
+    wishlist.length > 0 && selected.length === wishlist.length;
 
   return (
     <div className="list-favorite">
@@ -167,9 +143,7 @@ function Wishlist() {
       </div>
 
       {wishlist.length === 0 && (
-        <p className="empty-wishlist">
-          Chưa có sản phẩm yêu thích.
-        </p>
+        <p className="empty-wishlist">Chưa có sản phẩm yêu thích.</p>
       )}
 
       {wishlist.map((product) => (
@@ -180,26 +154,19 @@ function Wishlist() {
             onChange={() => handleSelect(product.id)}
           />
 
-          <img
-            src={product.thumbnail}
-            alt={product.title}
-          />
+          <img src={product.thumbnail} alt={product.title} />
 
           <div className="favorite-info">
             <h3>{product.title}</h3>
 
-            <p>
-              {product.price.toLocaleString("vi-VN")} $
-            </p>
+            <p>{product.price.toLocaleString("vi-VN")} $</p>
           </div>
         </div>
       ))}
 
       {wishlist.length > 0 && (
         <div className="btnselectAll">
-          <button onClick={handleAdd}>
-            🛒 Thêm sản phẩm đã chọn
-          </button>
+          <button onClick={handleAdd}>🛒 Thêm sản phẩm đã chọn</button>
 
           <button onClick={handleRemoveSelected}>
             🗑️ Xóa sản phẩm đã chọn

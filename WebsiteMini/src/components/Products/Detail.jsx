@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -29,9 +28,7 @@ function Detail() {
     queryKey: ["detail", id],
 
     queryFn: async () => {
-      const response = await fetch(
-        `https://dummyjson.com/products/${id}`
-      );
+      const response = await fetch(`https://dummyjson.com/products/${id}`);
 
       if (!response.ok) {
         throw new Error("Không thể lấy sản phẩm");
@@ -68,10 +65,7 @@ function Detail() {
       [id]: [...(reviews[id] || []), newReview],
     };
 
-    localStorage.setItem(
-      "product_reviews",
-      JSON.stringify(updatedReviews)
-    );
+    localStorage.setItem("product_reviews", JSON.stringify(updatedReviews));
 
     setReviews(updatedReviews);
     setComment("");
@@ -98,12 +92,10 @@ function Detail() {
   if (productReviews.length > 0) {
     const totalRating = productReviews.reduce(
       (total, review) => total + review.rating,
-      0
+      0,
     );
 
-    averageRating = (
-      totalRating / productReviews.length
-    ).toFixed(1);
+    averageRating = (totalRating / productReviews.length).toFixed(1);
   }
 
   return (
@@ -116,17 +108,12 @@ function Detail() {
       {/* Thông tin chi tiết sản phẩm */}
       <div className="detail-products">
         <div className="detail-item">
-          <img
-            src={data.thumbnail}
-            alt={data.title}
-          />
+          <img src={data.thumbnail} alt={data.title} />
 
           <div>
             <h3>{data.title}</h3>
 
-            <p>
-              Giá: {data.price.toLocaleString("vi-VN")} $
-            </p>
+            <p>Giá: {data.price.toLocaleString("vi-VN")} $</p>
 
             <p>Số lượng: {data.stock}</p>
 
@@ -167,9 +154,7 @@ function Detail() {
                 type="button"
                 key={star}
                 className={
-                  star <= rating
-                    ? "detail-star active"
-                    : "detail-star"
+                  star <= rating ? "detail-star active" : "detail-star"
                 }
                 onClick={() => setRating(star)}
               >
@@ -206,10 +191,7 @@ function Detail() {
 
           {[...productReviews].reverse().map((review) => {
             return (
-              <div
-                className="detail-review-item"
-                key={review.id}
-              >
+              <div className="detail-review-item" key={review.id}>
                 {/* Hiển thị tên người dùng */}
                 <h4 className="detail-review-username">
                   👤 {review.username || "Người dùng"}

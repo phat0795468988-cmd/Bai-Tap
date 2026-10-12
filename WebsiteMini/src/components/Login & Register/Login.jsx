@@ -22,7 +22,7 @@ function Login() {
           item.username.toLowerCase() === user.username.toLowerCase() &&
           item.password === user.password
       );
-          if (registerUser) {
+      if (registerUser) {
       return {
         ...registerUser,
         loginType: "register",
@@ -76,6 +76,7 @@ function Login() {
     },
   });
 
+  //Nút đăng nhập
   function handleLogin(e) {
     e.preventDefault();
 
@@ -84,10 +85,10 @@ function Login() {
       return;
     }
 
-    loginMutation.mutate({
-      username: username.trim(),
-      password: password,
-    });
+      loginMutation.mutate({
+        username: username.trim(),
+        password: password,
+      });
   }
 
   return (

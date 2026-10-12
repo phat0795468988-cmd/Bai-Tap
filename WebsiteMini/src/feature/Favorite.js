@@ -1,3 +1,4 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -14,15 +15,25 @@ const Favorite = createSlice({
   initialState,
 
   reducers: {
-    //Chọn tất cả sản phẩm
+    // Lấy Wishlist từ localStorage
+    setWishlist: (state, action) => {
+      state.list = action.payload;
+      state.selected = [];
+    },
+
+    // Chọn tất cả sản phẩm
     selectAll: (state) => {
-      if (state.selected.length === state.list.length) {
+      if (
+        state.list.length > 0 &&
+        state.selected.length === state.list.length
+      ) {
         state.selected = [];
       } else {
         state.selected = state.list.map((item) => item.id);
       }
     },
-    //Chọn một sản phẩm
+
+    // Chọn một sản phẩm
     selectItem: (state, action) => {
       const id = action.payload;
 
@@ -34,10 +45,9 @@ const Favorite = createSlice({
         state.selected.push(id);
       }
     },
-
   },
 });
 
-export const { selectAll, selectItemm } = Favorite.actions;
+export const { setWishlist, selectAll, selectItem } = Favorite.actions;
 
 export default Favorite.reducer;
