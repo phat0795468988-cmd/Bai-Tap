@@ -1,0 +1,97 @@
+.footer {
+  margin-top: 60px;
+  background: #111827;
+  color: white;
+}
+
+/* Container */
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 30px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+}
+
+/* Các cột */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tên shop */
+.footer-column h2 {
+  margin: 0 0 18px;
+
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Tiêu đề */
+.footer-column h3 {
+  margin: 0 0 20px;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Nội dung */
+.footer-column p {
+  margin: 0 0 10px;
+
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Link */
+.footer-column a {
+  margin-bottom: 12px;
+
+  color: #d1d5db;
+  font-size: 15px;
+
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+/* Hover link */
+.footer-column a:hover {
+  color: #60a5fa;
+  transform: translateX(4px);
+}
+
+/* Footer bottom */
+.footer-bottom {
+  border-top: 1px solid #374151;
+
+  padding: 20px 30px;
+
+  text-align: center;
+}
+
+/* Copyright */
+.footer-bottom p {
+  margin: 0;
+
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-column h2 {
+    font-size: 24px;
+  }
+}
